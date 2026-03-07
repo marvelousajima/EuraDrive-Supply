@@ -1,224 +1,292 @@
-* {
-  box-sizing: border-box;
-}
+/* Global */
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   margin: 0;
-  background: #f5f6f8;
-  color: #222;
+  background: #f7f7f7;
 }
 
-/* HEADER */
-.site-header {
-  background-color: #111;
-  padding: 10px 20px;
-}
+/* NAVBAR */
 
-.header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
+.navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 15px 20px;
+  background: white;
+  border-bottom: 1px solid #ddd;
 }
 
 .logo {
-  height: 48px;
-  width: auto;
+  height: 40px;
+}
+
+.nav-center input {
+  padding: 8px;
+  width: 300px;
+}
+
+.nav-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.login-btn {
+  padding: 6px 12px;
+  background: black;
+  color: white;
+  border: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
 }
 
 /* HERO */
+
 .hero {
-  background: #111;
-  color: #fff;
   text-align: center;
-  padding: 40px 20px; /* reduced from large values */
-}
-
-.hero h1 {
-  margin: 10px 0 6px;
-  font-size: 2.2rem;
-}
-
-.hero p {
-  margin: 0;
-  font-size: 1.1rem;
-  opacity: 0.9;
+  padding: 60px 20px;
+  background: #111;
+  color: white;
 }
 
 .badge {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 8px 16px;
-  background: #2ecc71;
-  color: #000;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 0.95rem;
+  background: #ff6a00;
+  padding: 6px 12px;
 }
 
-/* SECTIONS */
-section {
-  background: #fff;
-  margin: 30px auto;
-  padding: 30px;
-  max-width: 900px;
-  border-radius: 10px;
+/* PRODUCTS */
+
+.products {
+  padding: 40px;
 }
 
-h2 {
-  margin-top: 0;
-}
-
-/* CATEGORIES */
-.categories {
-  columns: 2;
-  padding-left: 18px;
-}
-
-/* GALLERY */
-.gallery {
+.product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-.card {
-  position: relative;
+.product {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
 }
 
-.card h3 {
-  font-size: 0.95rem;
-  margin-bottom: 6px;
-}
-
-.card img {
+.product img {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 6px;
-  transition: transform 0.25s ease;
+  cursor: pointer;
 }
 
-.card img:hover {
-  transform: scale(1.05);
+.price {
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.sold-tag {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  background: crimson;
+.rating {
+  color: #ffaa00;
+}
+
+.sold {
+  background: red;
   color: white;
-  padding: 5px 8px;
+  padding: 3px 8px;
   font-size: 12px;
-  border-radius: 4px;
+}
+/* Product card hover effect */
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.note {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
+/* TRUST */
+
+.trust {
+  padding: 40px;
+  background: white;
+  text-align: center;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* PAYMENTS */
+
+.payments {
+  text-align: center;
+  padding: 40px;
+}
+
+.payment-icons img {
+  height: 40px;
+  margin: 10px;
 }
 
 /* FORM */
-.form-section form {
-  display: flex;
-  flex-direction: column;
-}
 
-.form-section label {
-  font-weight: bold;
-  margin-bottom: 4px;
+.form-section {
+  padding: 40px;
+  background: white;
 }
 
 .form-section input,
 .form-section textarea {
-  margin-bottom: 15px;
+  width: 100%;
   padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
+/* =========================
+FORM SECTION LAYOUT
+========================= */
 
-button {
-  background: #111;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #333;
-}
-
-.privacy {
-  font-size: 13px;
-  color: #555;
-}
-
-/* WARRANTY */
-.warranty {
-  background: #fff;
-  border-left: 5px solid #2ecc71;
-}
-
-/* FOOTER */
-.site-footer {
-  background: #111;
-  color: #ccc;
+.form-section {
   padding: 40px 20px;
-  text-align: center;
-}
-
-.footer-block {
-  margin-bottom: 20px;
-}
-
-.social-icon {
-  width: 32px;
-  height: 32px;
-}
-
-.couriers {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-
-.couriers img {
-  height: 30px;
   background: white;
-  padding: 4px 6px;
+}
+
+/* Flex container */
+.form-container {
+  display: flex;
+  justify-content: flex-start; /* keeps form slightly left */
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Form itself */
+.part-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  max-width: 420px; /* prevents full width */
+  width: 100%;
+}
+
+/* Inputs */
+.part-form input,
+.part-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.footer-copy {
-  margin-top: 25px;
-  font-size: 13px;
-  color: #888;
+/* Submit button */
+.part-form button {
+  background: #111;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
 }
 
-/* MOBILE TWEAKS */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 1.8rem;
+/* Privacy text */
+.privacy {
+  font-size: 12px;
+  color: #666;
+}
+
+/* CONTACT */
+
+.contact {
+  padding: 40px;
+  text-align: center;
+}
+
+/* =========================
+FOOTER LAYOUT
+========================= */
+
+.site-footer {
+  background: #111;
+  color: white;
+  padding: 40px 20px;
+}
+
+/* Container holding the 3 blocks */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Individual footer blocks */
+.footer-block {
+  text-align: center;
+}
+
+/* Footer titles */
+.footer-block h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Social icon */
+.social-icon {
+  width: 35px;
+  margin-top: 10px;
+}
+
+/* Courier logos container */
+.couriers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Courier images */
+.couriers img {
+  height: 35px;
+  background: white;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Bottom copyright section */
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* =========================
+  MOBILE OPTIMIZATION
+  ========================= */
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
-  .categories {
-    columns: 1;
-  }
-
-  section {
-    margin: 20px 12px;
-    padding: 22px;
+  .footer-block {
+    text-align: center;
   }
 }
 
+/* MOBILE */
 
-  
-  
-  
+@media (max-width: 768px) {
+  .nav-center {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

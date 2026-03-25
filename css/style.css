@@ -99,12 +99,45 @@ body {
   font-size: 12px;
 }
 /* Product card hover effect */
-.product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Prevent accidental zoom/selection */
+.product img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
+/* Smooth feel */
+.img-wrapper {
+  overflow: hidden;
+}
+
+.product img {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Optional overlay hint */
+.product::after {
+  content: "Click to view more";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.product:hover::after {
+  opacity: 1;
+}
+
+.product {
+  transition: all 0.3s ease;
+}
 /* TRUST */
 
 .trust {
@@ -151,6 +184,51 @@ FORM SECTION LAYOUT
 .form-section {
   padding: 40px 20px;
   background: white;
+}
+
+.auth-section {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-section input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12px;
+}
+
+.auth-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.auth-buttons button:hover {
+  background-color: #005dc1;
+}
+
+.auth-message {
+  margin-top: 10px;
+  color: green;
+  font-weight: 500;
 }
 
 /* Flex container */
@@ -286,6 +364,168 @@ FOOTER LAYOUT
     display: none;
   }
 
+  .hamburger {
+    display: block;
+  }
+}
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal content */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Auth inputs & buttons */
+.modal-content input {
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.auth-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #0070f3;
+  color: #fff;
+  cursor: pointer;
+}
+.auth-buttons button:hover {
+  background: #005dc1;
+}
+
+#auth-message {
+  margin-top: 10px;
+  font-weight: 500;
+}
+/* Header container */
+.site-header {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Inner flex container */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+/* Logo on left */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Center: search form */
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-center form {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+
+.nav-center input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px 0 0 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.nav-center button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #0070f3;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Right: user / cart */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-right button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: #0070f3;
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-right .cart-icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* Responsive: mobile */
+@media screen and (max-width: 768px) {
+  .nav-center {
+    display: none;
+  }
   .hamburger {
     display: block;
   }

@@ -33,43 +33,35 @@ const auth = getAuth(app);
 WAIT FOR DOM
 ========================= */
 window.addEventListener("DOMContentLoaded", () => {
-  // Elements
+  // UI Elements
   const modal = document.getElementById("modal");
-  const openLoginBtn = document.getElementById("login-btn");
+  const openLoginBtn = document.getElementById("login-nav-btn"); // Matches new header
   const closeModal = document.getElementById("close-modal");
-  const logoutBtn = document.getElementById("logout-btn");
-  const userStatus = document.getElementById("user-status");
+  const userProfile = document.getElementById("user-profile");
+  const userAvatar = document.getElementById("user-avatar");
   const authMessage = document.getElementById("auth-message");
+
+  // Form Elements
   const signupBtn = document.getElementById("signup");
   const loginBtn = document.getElementById("login");
+  const logoutBtn = document.getElementById("logout-btn");
 
-  /* =========================
-  MODAL CONTROL
-  ========================= */
+  /* --- MODAL CONTROL --- */
   if (openLoginBtn) {
-    openLoginBtn.addEventListener("click", () => {
-      modal.style.display = "flex";
-    });
+    openLoginBtn.onclick = () => (modal.style.display = "flex");
   }
-
   if (closeModal) {
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
+    closeModal.onclick = () => (modal.style.display = "none");
   }
-
-  window.addEventListener("click", (e) => {
+  window.onclick = (e) => {
     if (e.target === modal) modal.style.display = "none";
-  });
+  };
 
-  /* =========================
-  SIGN UP
-  ========================= */
+  /* --- SIGN UP --- */
   if (signupBtn) {
-    signupBtn.addEventListener("click", () => {
+    signupBtn.onclick = () => {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
-
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           authMessage.textContent = "✅ Account created!";
@@ -79,51 +71,55 @@ window.addEventListener("DOMContentLoaded", () => {
           authMessage.textContent = "❌ " + err.message;
           authMessage.style.color = "red";
         });
-    });
+    };
   }
 
-  /* =========================
-  LOGIN
-  ========================= */
+  /* --- LOGIN --- */
   if (loginBtn) {
-    loginBtn.addEventListener("click", () => {
+    loginBtn.onclick = () => {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
-
       signInWithEmailAndPassword(auth, email, password)
         .then(() => {
-          authMessage.textContent = "✅ Logged in!";
-          authMessage.style.color = "green";
           modal.style.display = "none";
         })
         .catch((err) => {
           authMessage.textContent = "❌ " + err.message;
           authMessage.style.color = "red";
         });
-    });
+    };
   }
 
-  /* =========================
-  LOGOUT
-  ========================= */
+  /* --- LOGOUT --- */
   if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      signOut(auth);
-    });
+    logoutBtn.onclick = () => signOut(auth);
   }
 
-  /* =========================
-  AUTH STATE
-  ========================= */
+  /* --- AUTH STATE (The Initial Circle Logic) --- */
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      userStatus.textContent = `Logged in as ${user.email}`;
-      openLoginBtn.style.display = "none";
-      logoutBtn.style.display = "inline-block";
+      // 1. Get initial
+      const firstLetter = user.email.charAt(0).toUpperCase();
+
+      // 2. Update Avatar Circle
+      if (userAvatar) userAvatar.innerText = firstLetter;
+
+      // 3. Toggle Header Visibility
+      if (userProfile) userProfile.style.display = "flex";
+      if (openLoginBtn) openLoginBtn.style.display = "none";
+
+      console.log("Logged in:", user.email);
     } else {
-      userStatus.textContent = "Not logged in";
-      openLoginBtn.style.display = "inline-block";
-      logoutBtn.style.display = "none";
+      // 4. Reset to logged out state
+      if (userProfile) userProfile.style.display = "none";
+      if (openLoginBtn) openLoginBtn.style.display = "block";
+
+      console.log("Logged out");
     }
   });
 });
+
+// Global Logout function for the onclick="logoutUser()" in HTML
+window.logoutUser = () => {
+  signOut(auth).catch((error) => console.error("Logout Error:", error));
+};

@@ -36,11 +36,11 @@ body {
 
 .header-inner {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: center;
+  width: 100%;
+  padding: 10px 15px; /* Smaller horizontal padding on mobile */
+  box-sizing: border-box;
 }
 
 .logo {
@@ -80,10 +80,36 @@ body {
   cursor: pointer;
 }
 
+/* Container for User, Cart, and Hamburger */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: flex-end; /* Pushes everything to the right */
+  gap: 15px; /* Space between items */
+  flex: 1; /* Allows it to take up available space to push the logo left */
+}
+
+/* Ensure Hamburger stays at the very end */
+.hamburger {
+  order: 10; /* Forces it to the last position in the flex row */
+  margin-left: 10px; /* Extra breathing room from the cart */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* On Mobile: Make sure the Search Bar doesn't squash the icons */
+@media (max-width: 768px) {
+  .nav-center {
+    display: none; /* Optional: Hides search on very small screens to save space */
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
 }
 
 /* =========================
@@ -893,4 +919,95 @@ body {
   border-radius: 4px;
   font-size: 0.8rem;
   text-transform: uppercase;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  background-color: var(--primary-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hide the actual email text on mobile to save space */
+@media (max-width: 600px) {
+  .user-email-text {
+    display: none;
+  }
+}
+
+.logout-link {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.logout-link:hover {
+  color: white;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  background-color: var(--primary-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 2px solid white;
+}
+
+.logout-link {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* Specific Hover for the Red Track Order Link */
+.track-trigger {
+  color: var(--primary-red); /* Keep it red by default */
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.track-trigger:hover {
+  background-color: var(--primary-red); /* Fills the background red */
+  color: white !important; /* Forces text to white */
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3); /* Adds a subtle red glow */
 }

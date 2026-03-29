@@ -118,10 +118,8 @@ Logo | Search | Cart | Login
 ========================= -->
     <header class="site-header">
       <div class="header-inner">
-        <!-- LEFT: Logo -->
         <a href="#" class="logo">EuraDrive</a>
 
-        <!-- CENTER: Search -->
         <div class="nav-center">
           <form id="search-form">
             <input type="text" placeholder="Search parts..." id="search" />
@@ -131,38 +129,54 @@ Logo | Search | Cart | Login
           </form>
         </div>
 
-        <!-- RIGHT: User / Cart / Hamburger -->
         <div class="nav-right">
-          <span id="user-status">Not logged in</span>
-          <button id="login-btn">Login</button>
-          <button id="logout-btn" style="display: none">Logout</button>
+          <div id="auth-ui">
+            <button id="login-nav-btn" class="login-btn">Login</button>
+
+            <div id="user-profile" class="user-profile" style="display: none">
+              <div id="user-avatar" class="user-avatar"></div>
+              <button id="logout-btn" class="logout-link">Logout</button>
+            </div>
+          </div>
+
           <div class="cart-wrapper" id="cart-trigger">
             <span class="cart-icon">🛒</span>
             <span id="cart-count" class="cart-count">0</span>
           </div>
 
-          <div id="mobile-menu" class="mobile-menu">
-            <a href="#" class="cat-link" data-category="all">All Parts</a>
-            <a href="#" class="cat-link" data-category="engine">Engines</a>
-            <a href="#" class="cat-link" data-category="transmission"
-              >Transmissions</a
-            >
-            <a href="#" class="cat-link" data-category="wheels"
-              >Wheels & Tires</a
-            >
-            <a href="#" class="cat-link" data-category="ecu">Electrical/ECU</a>
-            <a href="#" class="cat-link" data-category="wreck">Wreck</a>
-          </div>
-
-          <!-- Hamburger -->
           <button class="hamburger" id="hamburger">☰</button>
+        </div>
 
-          <!-- Dropdown Menu -->
-          <div id="mobile-menu" class="mobile-menu">
-            <a href="request.html">Request a Part</a>
-            <a href="#" class="track-trigger">Track Order</a>
-            <a href="#">Contact</a>
-          </div>
+        <div id="mobile-menu" class="mobile-menu">
+          <a href="javascript:void(0)" class="cat-link" data-category="all"
+            >All Inventory</a
+          >
+          <a href="javascript:void(0)" class="cat-link" data-category="engine"
+            >Engines</a
+          >
+          <a
+            href="javascript:void(0)"
+            class="cat-link"
+            data-category="transmission"
+            >Transmissions</a
+          >
+          <a href="javascript:void(0)" class="cat-link" data-category="wheels"
+            >Wheels & Tires</a
+          >
+          <a href="javascript:void(0)" class="cat-link" data-category="ecu"
+            >Electrical/ECU</a
+          >
+          <a href="request.html">Request a Part</a>
+
+          <hr
+            style="
+              border: 0.5px solid rgba(255, 255, 255, 0.1);
+              width: 100%;
+              margin: 10px 0;
+            "
+          />
+
+          <a href="javascript:void(0)" class="track-trigger">Track My Order</a>
         </div>
       </div>
     </header>

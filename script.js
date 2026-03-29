@@ -297,3 +297,54 @@ if (findOrderBtn) {
     }
   };
 }
+/* ==========================================
+   HAMBURGER AUTO-CLOSE & FILTER LOGIC
+   ========================================== */
+const mobileMenu = document.getElementById("mobile-menu");
+
+// Handle Category Clicks (Inside Hamburger)
+document.querySelectorAll(".cat-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    const category = link.getAttribute("data-category");
+
+    // 1. Filter the products
+    document.querySelectorAll(".product").forEach((product) => {
+      if (
+        category === "all" ||
+        product.getAttribute("data-category") === category
+      ) {
+        product.style.display = "block";
+      } else {
+        product.style.display = "none";
+      }
+    });
+
+    // 2. CLOSE the hamburger menu
+    if (mobileMenu) {
+      mobileMenu.classList.remove("active");
+    }
+
+    // 3. Scroll smoothly to products so they see the change
+    document
+      .getElementById("product-grid")
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+// Ensure the Hamburger Toggle still works
+const hamburger = document.getElementById("hamburger");
+if (hamburger) {
+  hamburger.onclick = (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle("active");
+  };
+}
+
+// Close menu if clicking anywhere else on the screen
+document.addEventListener("click", (event) => {
+  const isClickInside =
+    mobileMenu.contains(event.target) || hamburger.contains(event.target);
+  if (!isClickInside && mobileMenu.classList.contains("active")) {
+    mobileMenu.classList.remove("active");
+  }
+});

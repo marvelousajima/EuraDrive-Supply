@@ -42,7 +42,12 @@ body {
   padding: 10px 15px; /* Smaller horizontal padding on mobile */
   box-sizing: border-box;
 }
-
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* This keeps Logo, Search, and Cart perfectly leveled */
+  padding: 10px 5%;
+}
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
@@ -51,7 +56,30 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  min-width: 120px; /* Adjust based on your logo shape */
+}
 
+.logo-img {
+  height: 40px; /* Match this to your header height */
+  width: auto; /* Maintains aspect ratio */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05); /* Slight "pop" on hover */
+}
+
+/* Mobile Tweak: Make logo slightly smaller on phones if needed */
+@media (max-width: 600px) {
+  .logo-img {
+    height: 32px;
+  }
+}
 .nav-center {
   order: 3; /* Search moves to bottom on mobile */
   width: 100%;

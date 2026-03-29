@@ -118,10 +118,10 @@ Logo | Search | Cart | Login
 ========================= -->
     <header class="site-header">
       <div class="header-inner">
-        <!-- Left: Logo -->
-        <a href="images/logo.png" class="logo">EuraDrive</a>
+        <!-- LEFT: Logo -->
+        <a href="#" class="logo">EuraDrive</a>
 
-        <!-- Center: Search -->
+        <!-- CENTER: Search -->
         <div class="nav-center">
           <form id="search-form">
             <input type="text" placeholder="Search parts..." id="search" />
@@ -131,15 +131,38 @@ Logo | Search | Cart | Login
           </form>
         </div>
 
-        <!-- Right: User / Cart -->
+        <!-- RIGHT: User / Cart / Hamburger -->
         <div class="nav-right">
           <span id="user-status">Not logged in</span>
           <button id="login-btn">Login</button>
           <button id="logout-btn" style="display: none">Logout</button>
-          <span class="cart-icon">🛒</span>
+          <div class="cart-wrapper" id="cart-trigger">
+            <span class="cart-icon">🛒</span>
+            <span id="cart-count" class="cart-count">0</span>
+          </div>
 
-          <!-- Mobile Hamburger -->
-          <button class="hamburger">☰</button>
+          <div id="mobile-menu" class="mobile-menu">
+            <a href="#" class="cat-link" data-category="all">All Parts</a>
+            <a href="#" class="cat-link" data-category="engine">Engines</a>
+            <a href="#" class="cat-link" data-category="transmission"
+              >Transmissions</a
+            >
+            <a href="#" class="cat-link" data-category="wheels"
+              >Wheels & Tires</a
+            >
+            <a href="#" class="cat-link" data-category="ecu">Electrical/ECU</a>
+            <a href="#" class="cat-link" data-category="wreck">Wreck</a>
+          </div>
+
+          <!-- Hamburger -->
+          <button class="hamburger" id="hamburger">☰</button>
+
+          <!-- Dropdown Menu -->
+          <div id="mobile-menu" class="mobile-menu">
+            <a href="request.html">Request a Part</a>
+            <a href="#" class="track-trigger">Track Order</a>
+            <a href="#">Contact</a>
+          </div>
         </div>
       </div>
     </header>
@@ -149,9 +172,20 @@ HERO SECTION
 ========================= -->
     <section class="hero">
       <h1>EuraDrive Supply</h1>
+
       <p>Your trusted source for quality auto parts</p>
 
       <span class="badge">🚚 3-Day Shipping Available</span>
+      <div class="category-bar">
+        <button class="cat-btn" data-category="all">All</button>
+        <button class="cat-btn" data-category="engine">Engines</button>
+        <button class="cat-btn" data-category="transmission">
+          Transmissions
+        </button>
+        <button class="cat-btn" data-category="wheels">Wheels</button>
+        <button class="cat-btn" data-category="ecu">ECU/Electrical</button>
+        <button class="cat-btn" data-category="wreck">Wreck</button>
+      </div>
     </section>
 
     <!-- =========================
@@ -177,179 +211,230 @@ All original parts included
       <h2>Recent Parts</h2>
 
       <div class="product-grid">
-        <!-- Cummins Engine -->
-        <div class="product" data-name="cummins 6ct 8.3L diesel engine">
+        <div
+          class="product"
+          data-name="cummins 6ct 8.3L diesel engine"
+          data-category="engine"
+        >
           <h3>Cummins 6CT 8.3L Diesel Engine</h3>
-
-          <img
-            class="product-img"
-            data-images="images/engine1_front.jpg,images/engine1_side.jpg"
-            src="images/engine1_front.jpg"
-          />
-
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/engine1_front.jpg,images/engine1_side.jpg"
+              src="images/engine1_front.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$2,800</p>
           <p class="rating">⭐⭐⭐⭐⭐ (32 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- Tacoma Transmission -->
-        <div class="product" data-name="2009 toyota tacoma transmission">
+        <div
+          class="product"
+          data-name="2009 toyota tacoma transmission"
+          data-category="transmission"
+        >
+          <span class="sold">SOLD</span>
           <h3>2009 Toyota Tacoma Transmission</h3>
-
-          <img
-            class="product-img"
-            data-images="images/gearbox1_back.jpg,images/gearbox1_front.jpg,images/gearbox1_side.jpg"
-            src="images/gearbox1_back.jpg"
-          />
-
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/gearbox1_back.jpg,images/gearbox1_front.jpg,images/gearbox1_side.jpg"
+              src="images/gearbox1_back.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$860</p>
           <p class="rating">⭐⭐⭐⭐ (18 reviews)</p>
-
-          <span class="sold">SOLD</span>
+          <button class="add-to-cart" disabled>Item Sold</button>
         </div>
 
-        <!-- Evoque Engine -->
-        <div class="product" data-name="2013 range rover engine">
+        <div
+          class="product"
+          data-name="2013 range rover engine"
+          data-category="engine"
+        >
           <h3>2013 Range Rover Evoque Engine</h3>
-
-          <img
-            class="product-img"
-            data-images="images/engine2_back.jpg,images/engine2_front.jpg,images/engine2_side.jpg"
-            src="images/engine2_back.jpg"
-          />
-
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/engine2_back.jpg,images/engine2_front.jpg,images/engine2_side.jpg"
+              src="images/engine2_back.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$1,600</p>
           <p class="rating">⭐⭐⭐⭐⭐ (21 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- Camaro Engine -->
-        <div class="product" data-name="2010 chevy camaro engine">
+        <div
+          class="product"
+          data-name="2010 chevy camaro engine"
+          data-category="engine"
+        >
           <h3>2010 Chevy Camaro Engine</h3>
-
-          <img
-            class="product-img"
-            data-images="images/engine3_front.jpg,images/engine3_side.jpg"
-            src="images/engine3_front.jpg"
-          />
-
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/engine3_front.jpg,images/engine3_side.jpg"
+              src="images/engine3_front.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$1,490</p>
           <p class="rating">⭐⭐⭐⭐ (14 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- Toyota Venza -->
-        <div class="product" data-name="2001 toyota venza parts ">
-          <h3>2001 Toyota Venza – Parts Only</h3>
-
-          <img
-            class="product-img"
-            data-images="images/venza_front.jpg,images/venza_side.jpg,images/venza_back.jpg"
-            src="images/venza_front.jpg"
-          />
-
-          <p class="price">$900 (parts)</p>
-          <p class="rating">⭐⭐⭐⭐ (9 reviews)</p>
-
+        <div
+          class="product"
+          data-name="2001 toyota venza parts"
+          data-category="wreck"
+        >
           <span class="sold">SOLD</span>
+          <h3>2001 Toyota Venza – Parts Only</h3>
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/venza_front.jpg,images/venza_side.jpg,images/venza_back.jpg"
+              src="images/venza_front.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
+          <p class="price">$900</p>
+          <p class="rating">⭐⭐⭐⭐ (9 reviews)</p>
+          <button class="add-to-cart" disabled>Item Sold</button>
         </div>
 
-        <!-- Hyundai Elantra -->
-        <div class="product" data-name="2013 hyundai elantra parts">
+        <div
+          class="product"
+          data-name="2013 hyundai elantra parts"
+          data-category="wreck"
+        >
           <h3>2013 Hyundai Elantra – Parts Only</h3>
-
-          <img
-            class="product-img"
-            data-images="images/hyundai_front.jpg,images/hyundai_side.jpg,images/hyundai_back.jpg"
-            src="images/hyundai_front.jpg"
-          />
-
-          <p class="price">$850 (parts)</p>
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/hyundai_front.jpg,images/hyundai_side.jpg,images/hyundai_back.jpg"
+              src="images/hyundai_front.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
+          <p class="price">$850</p>
           <p class="rating">⭐⭐⭐⭐ (12 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- Audi Q7 Transmission -->
-        <div class="product" data-name="2015 audi q7 transmission">
+        <div
+          class="product"
+          data-name="2015 audi q7 transmission"
+          data-category="transmission"
+        >
           <h3>2015 Audi Q7 Transmission</h3>
-
-          <img
-            class="product-img"
-            data-images="images/gearbox2_main.jpg,images/gearbox2_side.jpg,images/gearbox2_back.jpg"
-            src="images/gearbox2_main.jpg"
-          />
-
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/gearbox2_main.jpg,images/gearbox2_side.jpg,images/gearbox2_back.jpg"
+              src="images/gearbox2_main.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$900</p>
           <p class="rating">⭐⭐⭐⭐⭐ (17 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- BMW Mass Meter -->
         <div class="product" data-name="e30 325i m20b25 mass meter">
           <h3>E30 325i M20B25 Mass Meter</h3>
-
-          <img
-            class="product-img"
-            data-images="images/masmeter_front.jpg,images/masmeter_side.jpg,images/masmeter_back.jpg"
-            src="images/masmeter_front.jpg"
-          />
-
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/masmeter_front.jpg,images/masmeter_side.jpg,images/masmeter_back.jpg"
+              src="images/masmeter_front.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$220</p>
           <p class="rating">⭐⭐⭐⭐ (11 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- Dodge Wheels -->
-        <div class="product" data-name="dodge ram wheels srt/trx">
-          <h3>22\" Dodge Ram Wheels – SRT / TRX</h3>
-
-          <img
-            class="product-img"
-            data-images="images/tire1.jpg,images/tire2.jpg"
-            src="images/tire1.jpg"
-          />
-
+        <div
+          class="product"
+          data-name="dodge ram wheels srt/trx"
+          data-category="wheels"
+        >
+          <h3>22" Dodge Ram Wheels – SRT / TRX</h3>
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/tire1.jpg,images/tire2.jpg"
+              src="images/tire1.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$870</p>
           <p class="rating">⭐⭐⭐⭐⭐ (24 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- Ford Wheels -->
-        <div class="product" data-name="ford f250 oem chrome wheels">
-          <h3>20\" Ford F250 OEM Chrome Wheels</h3>
-
-          <img
-            class="product-img"
-            data-images="images/rim1.jpg,images/rim2.jpg,images/rim3.jpg"
-            src="images/rim1.jpg"
-          />
-
+        <div
+          class="product"
+          data-name="ford f250 oem chrome wheels"
+          data-category="wheels"
+        >
+          <h3>20" Ford F250 OEM Chrome Wheels</h3>
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/rim1.jpg,images/rim2.jpg,images/rim3.jpg"
+              src="images/rim1.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$400</p>
           <p class="rating">⭐⭐⭐⭐ (13 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- Mack ECU -->
-        <div class="product" data-name="mack vehicle control module (vecu)">
+        <div
+          class="product"
+          data-name="mack vehicle control module (vecu)"
+          data-category="ecu"
+        >
           <h3>MACK Vehicle Control Module (VECU)</h3>
-
-          <img
-            class="product-img"
-            data-images="images/ecu1_front.jpg,images/ecu1_side.jpg,images/ecu1_main.jpg"
-            src="images/ecu1_front.jpg"
-          />
-
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/ecu1_front.jpg,images/ecu1_side.jpg,images/ecu1_main.jpg"
+              src="images/ecu1_front.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$240</p>
           <p class="rating">⭐⭐⭐⭐⭐ (19 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <!-- Wolfrace Wheels -->
         <div
           class="product"
           data-name="wolfrace assasin black polished wheels and tires"
+          data-category="wheels"
         >
-          <h3>Wolfrace Assassin Black Polished 18\" Wheels + Tires</h3>
-
-          <img
-            class="product-img"
-            data-images="images/ds44.jpg,images/ds42.jpg,images/ds43.jpg,images/ds41.jpg"
-            src="images/ds44.jpg"
-          />
-
+          <h3>Wolfrace Assassin 18" Wheels + Tires</h3>
+          <div class="img-container">
+            <img
+              class="product-img"
+              data-images="images/ds44.jpg,images/ds42.jpg,images/ds43.jpg,images/ds41.jpg"
+              src="images/ds44.jpg"
+            />
+            <span class="gallery-count"></span>
+          </div>
           <p class="price">$520</p>
           <p class="rating">⭐⭐⭐⭐⭐ (16 reviews)</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
 
@@ -422,7 +507,7 @@ All original parts included
         <img src="images/mastercard.png" alt="Mastercard" />
         <img src="images/paypal.png" alt="PayPal" />
         <img src="images/stripe.png" alt="Stripe" />
-        <img src="images/bank.png" alt="Bank Transfer" />
+        <img src="images/zelle.png" alt="zelle" />
       </div>
 
       <p class="payment-note">
@@ -451,6 +536,22 @@ All original parts included
       </div>
     </div>
     <!-- End Modal -->
+    <div id="product-modal" class="modal">
+      <div class="modal-content product-view">
+        <span class="close" id="close-product">&times;</span>
+        <div class="product-detail-grid">
+          <img id="detail-img" src="" alt="Part Image" />
+          <div class="detail-info">
+            <h2 id="detail-title">Part Name</h2>
+            <p id="detail-desc">Full technical description goes here...</p>
+            <p class="detail-price" id="detail-price">$0.00</p>
+            <button id="detail-add-to-cart" class="add-to-cart">
+              Add to Garage
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- =========================
    CONTACT SECTION
@@ -528,6 +629,87 @@ All original parts included
         <p>© 2026 EuraDrive Supply • Fast sourcing • 3-day shipping options</p>
       </div>
     </footer>
+    <div id="cart-drawer" class="cart-drawer">
+      <div class="cart-header">
+        <h3>Your Garage (Cart)</h3>
+        <span id="close-cart" class="close-cart">&times;</span>
+      </div>
+      <div id="cart-items-container">
+        <p class="empty-msg">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer">
+        <div class="total-price">Total: $<span id="cart-total">0</span></div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <a
+      href="https://wa.me/2348144279505"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="float-text">Chat with an Expert</span>
+    </a>
+    <div id="tracking-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-tracking">&times;</span>
+        <h2 style="margin-top: 0; color: var(--dark-bg)">Track Your Gear</h2>
+        <p>Enter your Order ID (e.g. #EDS-101) to see live status.</p>
+
+        <div
+          class="track-form"
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+          "
+        >
+          <input
+            type="text"
+            id="order-id-input"
+            placeholder="Enter Order ID..."
+            style="
+              padding: 12px;
+              border: 2px solid #ddd;
+              border-radius: 4px;
+              font-size: 1rem;
+            "
+          />
+          <button
+            id="find-order-btn"
+            style="
+              padding: 12px;
+              background: var(--primary-red);
+              color: white;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              font-weight: bold;
+            "
+          >
+            Check Status
+          </button>
+        </div>
+
+        <div
+          id="track-result-display"
+          class="track-result"
+          style="
+            margin-top: 20px;
+            display: none;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border-left: 4px solid var(--primary-red);
+            text-align: left;
+          "
+        ></div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
     <script type="module" src="./firebase.js"></script>

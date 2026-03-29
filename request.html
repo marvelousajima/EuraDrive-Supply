@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request a Part – EuraDrive</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo">EuraDrive</a>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>Request a Part</h2>
+      <p>Fill this form and we’ll source it for you.</p>
+
+      <div class="form-container">
+        <form
+          class="part-form"
+          action="https://formspree.io/f/xdaangll"
+          method="POST"
+        >
+          <label>Email</label>
+          <input type="email" name="email" required />
+
+          <label>Car Details</label>
+          <input
+            type="text"
+            name="car"
+            placeholder="Make, Model, Year"
+            required
+          />
+
+          <label>Part Needed</label>
+          <textarea name="message" rows="5" required></textarea>
+
+          <button type="submit">Send Request</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

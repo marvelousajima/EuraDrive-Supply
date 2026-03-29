@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // CHANGE THIS TO YOUR ACTUAL WHATSAPP NUMBER
-      const myNumber = "2348000000000";
+      const myNumber = "17074004367";
 
       let message =
         "Hello EuraDrive Supply! I want to order these parts:%0a%0a";

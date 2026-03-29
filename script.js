@@ -348,3 +348,222 @@ document.addEventListener("click", (event) => {
     mobileMenu.classList.remove("active");
   }
 });
+/* ==========================================
+   NEWSLETTER POPUP LOGIC
+   ========================================== */
+window.addEventListener("load", () => {
+  const newsModal = document.getElementById("newsletter-modal");
+  const closeNews = document.getElementById("close-news");
+  const newsForm = document.getElementById("newsletter-form");
+
+  // 1. Check if user has seen it this session
+  const hasSeenNewsletter = sessionStorage.getItem("newsletterShown");
+
+  if (!hasSeenNewsletter) {
+    // Show after 3 seconds for a better user experience
+    setTimeout(() => {
+      newsModal.style.display = "flex";
+    }, 3000);
+  }
+
+  // 2. Close and set "Seen" flag
+  if (closeNews) {
+    closeNews.onclick = () => {
+      newsModal.style.display = "none";
+      sessionStorage.setItem("newsletterShown", "true");
+    };
+  }
+
+  // 3. Handle Form Submission
+  if (newsForm) {
+    newsForm.onsubmit = (e) => {
+      e.preventDefault();
+      const email = document.getElementById("news-email").value;
+      console.log("Newsletter Signup:", email);
+
+      alert("Thanks for joining! Watch your inbox.");
+      newsModal.style.display = "none";
+      sessionStorage.setItem("newsletterShown", "true");
+    };
+  }
+});
+/* ==========================================
+   EXPANDED FLOATING REVIEWS (12 ENTRIES)
+   ========================================== */
+const reviews = [
+  {
+    name: "Jason R.",
+    text: "Found a rare Cummins engine here. Fast shipping to Texas!",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Sarah M.",
+    text: "Transmission arrived exactly as described. Saved me $1200 vs the dealership.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Mike T.",
+    text: "Best customer service for Euro parts I've found yet. Very knowledgeable.",
+    stars: "⭐⭐⭐⭐",
+  },
+  {
+    name: "Kevin L.",
+    text: "Verified SRT wheels. Packaging was top tier, no scratches at all.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "David W.",
+    text: "Fast response on WhatsApp. Helped me find the right ECU for my build.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Robert H.",
+    text: "Ordered a steering rack last week, arrived in 3 days. Impressive speed.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Elena G.",
+    text: "The LED headlight assembly was plug-and-play. Great quality OEM part.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Marcus P.",
+    text: "Got a full Brembo brake kit. Hard to find these prices elsewhere.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Julian S.",
+    text: "Body panels were paint-matched perfectly. Packed very securely.",
+    stars: "⭐⭐⭐⭐",
+  },
+  {
+    name: "Chris B.",
+    text: "First time buying a used motor online, EuraDrive made it easy and stress-free.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Antonio R.",
+    text: "Turbocharger works like a charm. Boost is back to normal!",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Victor M.",
+    text: "Found a replacement dash for my vintage project. Absolute lifesaver.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+];
+
+// Logic remains the same, but now pulls from this larger list!
+function showRandomReview() {
+  const container = document.getElementById("review-toast-container");
+  if (!container) return;
+
+  const randomIdx = Math.floor(Math.random() * reviews.length);
+  const review = reviews[randomIdx];
+
+  const card = document.createElement("div");
+  card.className = "review-card";
+  card.innerHTML = `
+        <span class="close-review">&times;</span>
+        <div class="review-stars">${review.stars}</div>
+        <h4>${review.name}</h4>
+        <p>"${review.text}"</p>
+    `;
+
+  container.appendChild(card);
+
+  card.querySelector(".close-review").onclick = () => {
+    card.style.animation = "fadeOut 0.4s forwards";
+    setTimeout(() => card.remove(), 400);
+  };
+
+  setTimeout(() => {
+    if (card.parentElement) {
+      card.style.animation = "fadeOut 0.4s forwards";
+      setTimeout(() => card.remove(), 400);
+    }
+  }, 6000);
+}
+
+// Start the cycle
+setTimeout(() => {
+  showRandomReview();
+  setInterval(showRandomReview, 18000); // Shown every 18 seconds to feel natural
+}, 4000);
+/* ==========================================
+   FIXED CURRENCY & LOCATION ENGINE
+   ========================================== */
+
+const currencyData = {
+  USD: { symbol: "$", rate: 1.0, suffix: false },
+  EUR: { symbol: "€", rate: 0.92, suffix: false },
+  GBP: { symbol: "£", rate: 0.79, suffix: false },
+  RON: { symbol: " lei", rate: 4.58, suffix: true },
+  PLN: { symbol: " zł", rate: 3.98, suffix: true },
+};
+
+async function initCurrency() {
+  const select = document.getElementById("currency-select");
+  if (!select) return;
+
+  const savedCurrency = localStorage.getItem("selectedCurrency");
+
+  // 1. Determine which currency to show
+  if (savedCurrency) {
+    select.value = savedCurrency;
+    applyCurrencyUpdate(savedCurrency);
+  } else {
+    // Auto-detect only if no preference is saved
+    try {
+      const response = await fetch("https://ipapi.co/json/");
+      const data = await response.json();
+      let autoCurrency = "USD";
+
+      if (data.country_code === "GB") autoCurrency = "GBP";
+      else if (data.country_code === "RO") autoCurrency = "RON";
+      else if (data.country_code === "PL") autoCurrency = "PLN";
+      else if (["DE", "FR", "IT", "ES", "NL", "BE"].includes(data.country_code))
+        autoCurrency = "EUR";
+
+      select.value = autoCurrency;
+      localStorage.setItem("selectedCurrency", autoCurrency);
+      applyCurrencyUpdate(autoCurrency);
+    } catch (err) {
+      console.warn("Location detect failed, defaulting to USD");
+      applyCurrencyUpdate("USD");
+    }
+  }
+
+  // 2. Listener for manual changes
+  select.addEventListener("change", (e) => {
+    const val = e.target.value;
+    localStorage.setItem("selectedCurrency", val);
+    applyCurrencyUpdate(val);
+  });
+}
+
+function applyCurrencyUpdate(currencyCode) {
+  const info = currencyData[currencyCode];
+  // Selects all price elements with the data-usd attribute
+  const priceElements = document.querySelectorAll(".price[data-usd]");
+
+  priceElements.forEach((el) => {
+    const usdValue = parseFloat(el.getAttribute("data-usd"));
+
+    if (!isNaN(usdValue)) {
+      const converted = (usdValue * info.rate).toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+
+      if (info.suffix) {
+        el.innerText = `${converted}${info.symbol}`;
+      } else {
+        el.innerText = `${info.symbol}${converted}`;
+      }
+    }
+  });
+}
+
+// Call this inside your DOMContentLoaded or at the bottom of script.js
+document.addEventListener("DOMContentLoaded", initCurrency);

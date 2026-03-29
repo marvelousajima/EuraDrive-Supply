@@ -245,7 +245,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$2,800</p>
+          <p class="price" data-usd="2800">$2,800</p>
           <p class="rating">⭐⭐⭐⭐⭐ (32 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -265,7 +265,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$860</p>
+          <p class="price" data-usd="860">$860</p>
           <p class="rating">⭐⭐⭐⭐ (18 reviews)</p>
           <button class="add-to-cart" disabled>Item Sold</button>
         </div>
@@ -284,7 +284,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$1,600</p>
+          <p class="price" data-usd="1600">$1,600</p>
           <p class="rating">⭐⭐⭐⭐⭐ (21 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -303,7 +303,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$1,490</p>
+          <p class="price" data-usd="1490">$1,490</p>
           <p class="rating">⭐⭐⭐⭐ (14 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -323,7 +323,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$900</p>
+          <p class="price" data-usd="900">$900</p>
           <p class="rating">⭐⭐⭐⭐ (9 reviews)</p>
           <button class="add-to-cart" disabled>Item Sold</button>
         </div>
@@ -342,7 +342,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$850</p>
+          <p class="price" data-usd="850">$850</p>
           <p class="rating">⭐⭐⭐⭐ (12 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -361,7 +361,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$900</p>
+          <p class="price" data-usd="900">$900</p>
           <p class="rating">⭐⭐⭐⭐⭐ (17 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -376,7 +376,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$220</p>
+          <p class="price" data-usd="220">$220</p>
           <p class="rating">⭐⭐⭐⭐ (11 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -395,7 +395,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$870</p>
+          <p class="price" data-usd="870">$870</p>
           <p class="rating">⭐⭐⭐⭐⭐ (24 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -414,7 +414,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$400</p>
+          <p class="price" data-usd="400">$400</p>
           <p class="rating">⭐⭐⭐⭐ (13 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -433,7 +433,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$240</p>
+          <p class="price" data-usd="240">$240</p>
           <p class="rating">⭐⭐⭐⭐⭐ (19 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -452,7 +452,7 @@ All original parts included
             />
             <span class="gallery-count"></span>
           </div>
-          <p class="price">$520</p>
+          <p class="price" data-usd="520">$520</p>
           <p class="rating">⭐⭐⭐⭐⭐ (16 reviews)</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
@@ -604,6 +604,13 @@ All original parts included
             <small>contact and updates available on our Facebook page.</small>
           </p>
         </div>
+        <select id="currency-select" class="currency-select">
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="RON">RON (lei)</option>
+          <option value="PLN">PLN (zł)</option>
+        </select>
 
         <!-- SHIPPING PARTNERS -->
         <div class="footer-block">
@@ -730,6 +737,33 @@ All original parts included
         ></div>
       </div>
     </div>
+    <div id="newsletter-modal" class="modal newsletter-overlay">
+      <div class="newsletter-content">
+        <span class="close-newsletter" id="close-news">&times;</span>
+
+        <div class="newsletter-flex">
+          <div class="newsletter-img">
+            <img src="images/newsletter-part.jpg" alt="Exclusive Offers" />
+          </div>
+
+          <div class="newsletter-form-side">
+            <h2>Join the Garage</h2>
+            <p>Sign up for exclusive offers, new products, and more.</p>
+            <form id="newsletter-form">
+              <input
+                type="email"
+                id="news-email"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="news-btn">Get Early Access</button>
+            </form>
+            <p class="tiny-text">performance driven. Unsubscribe anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="review-toast-container" class="review-toast-container"></div>
 
     <script src="script.js"></script>
     <script type="module" src="./firebase.js"></script>

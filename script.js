@@ -567,3 +567,248 @@ function applyCurrencyUpdate(currencyCode) {
 
 // Call this inside your DOMContentLoaded or at the bottom of script.js
 document.addEventListener("DOMContentLoaded", initCurrency);
+/* ==========================================
+   EURADRIVE MASTER LANGUAGE & CURRENCY ENGINE
+   ========================================== */
+
+const uiTranslations = {
+  EN: {
+    login: "Login",
+    nav_engines: "Engines",
+    nav_transmissions: "Transmissions",
+    nav_wheels: "Wheels & Tires",
+    "nav_electrical/ecu": "Electrical/ECU",
+    nav_request_parts: "Request a Part",
+    track_order: "Track My Order",
+    recent_parts: "Recent Parts",
+    add_to_cart: "Add to Cart",
+    item_sold: "Item Sold",
+    notes: "Parts shown are examples. Availability changes frequently.",
+    "looking_for_a_part?": "Looking for a Part?",
+    contact_message:
+      "Tell us what you need. Leave your email and we’ll get back to you within the hour.",
+    payment_methods: "Accepted Payment Methods",
+    news_title: "Join the Garage",
+    news_text: "Sign up for exclusive offers, new products, and more.",
+    news_btn: "Get Early Access",
+    follow_us: "Follow Us",
+    shipping_partners: "Shipping Partners",
+    delivery_message:
+      "worldwide delivery available depending on part location.",
+    return_policy: "Return Policy",
+    return_policy_message:
+      "Returns are accepted according to supplier terms. Parts must be unused and returned in their original condition.",
+    return_policy_message_2:
+      "Please contact us before sending any return to receive the correct return instructions.",
+  },
+  RO: {
+    login: "Autentificare",
+    nav_engines: "Motoare",
+    nav_transmissions: "Transmisii",
+    nav_wheels: "Jante și Anvelope",
+    "nav_electrical/ecu": "Electrice/ECU",
+    nav_request_parts: "Cerere Piesă",
+    track_order: "Urmărire Comandă",
+    recent_parts: "Piese Recente",
+    add_to_cart: "Adaugă în Coș",
+    item_sold: "Vândut",
+    notes:
+      "Piesele afișate sunt exemple. Disponibilitatea se schimbă frecvent.",
+    "looking_for_a_part?": "Cauți o piesă?",
+    contact_message:
+      "Spune-ne de ce ai nevoie. Lasă-ți adresa de e-mail și îți vom răspunde în decurs de o oră.",
+    payment_methods: "Metode de Plată Acceptate",
+    news_title: "Alătură-te Garajului",
+    news_text:
+      "Abonează-te pentru oferte exclusive, produse noi și multe altele.",
+    news_btn: "Obține Acces",
+    follow_us: "Urmărește-ne",
+    shipping_partners: "Parteneri de Livrare",
+    delivery_message:
+      "livrare în întreaga lume disponibilă în funcție de locația piesei.",
+    return_policy: "Politica de Retur",
+    return_policy_message:
+      "Retururile sunt acceptate conform termenilor furnizorului. Piesele trebuie să fie nefolosite și returnate în starea lor originală.",
+    return_policy_message_2:
+      "Vă rugăm să ne contactați înainte de a trimite orice retur pentru a primi instrucțiunile corecte.",
+  },
+  PL: {
+    login: "Zaloguj się",
+    nav_engines: "Silniki",
+    nav_transmissions: "Skrzynie biegów",
+    nav_wheels: "Koła i Opony",
+    "nav_electrical/ecu": "Elektryka/ECU",
+    nav_request_parts: "Zatwierdź część",
+    track_order: "Śledź zamówienie",
+    recent_parts: "Ostatnie części",
+    add_to_cart: "Dodaj do koszyka",
+    item_sold: "Sprzedane",
+    notes: "Pokazane części to przykłady. Dostępność często się zmienia.",
+    "looking_for_a_part?": "Szukasz części?",
+    contact_message:
+      "Powiedz nam, czego potrzebujesz. Zostaw swój e-mail, a skontaktujemy się z Tobą w ciągu godziny.",
+    payment_methods: "Akceptowane Metody Płatności",
+    news_title: "Dołącz do Garażu",
+    news_text:
+      "Zapisz się, aby otrzymywać ekskluzywne oferty, nowości i więcej.",
+    news_btn: "Uzyskaj dostęp",
+    follow_us: "Obserwuj nas",
+    shipping_partners: "Partnerzy wysyłkowi",
+    delivery_message:
+      "dostawa na cały świat dostępna w zależności od lokalizacji części.",
+    return_policy: "Polityka zwrotów",
+    return_policy_message:
+      "Zwroty są akceptowane zgodnie z warunkami dostawcy. Części muszą być nieużywane i zwrócone w oryginalnym stanie.",
+    return_policy_message_2:
+      "Prosimy o kontakt przed wysłaniem zwrotu w celu otrzymania instrukcji.",
+  },
+  IT: {
+    login: "Accedi",
+    nav_engines: "Motori",
+    nav_transmissions: "Trasmissioni",
+    nav_wheels: "Ruote e Pneumatici",
+    "nav_electrical/ecu": "Elettronica/ECU",
+    nav_request_parts: "Richiedi un Ricambio",
+    track_order: "Traccia il mio Ordine",
+    recent_parts: "Parti Recenti",
+    add_to_cart: "Aggiungi al Carrello",
+    item_sold: "Venduto",
+    notes:
+      "Le parti mostrate sono esempi. La disponibilità cambia frequentemente.",
+    "looking_for_a_part?": "Cerchi un ricambio?",
+    contact_message:
+      "Dicci di cosa hai bisogno. Lascia la tua email e ti risponderemo entro un'ora.",
+    payment_methods: "Metodi di Pagamento Accettati",
+    news_title: "Unisciti al Garage",
+    news_text:
+      "Iscriviti per offerte esclusive, nuovi prodotti e altro ancora.",
+    news_btn: "Ottieni l'accesso",
+    follow_us: "Seguici",
+    shipping_partners: "Partner di Spedizione",
+    delivery_message:
+      "consegna in tutto il mondo disponibile a seconda della posizione del pezzo.",
+    return_policy: "Politica di Reso",
+    return_policy_message:
+      "I resi sono accettati secondo i termini del fornitore. Le parti devono essere inutilizzate e restituite nelle loro condizioni originali.",
+    return_policy_message_2:
+      "Contattaci prima di spedire qualsiasi reso per ricevere le istruzioni corrette.",
+  },
+  ES: {
+    login: "Iniciar Sesión",
+    nav_engines: "Motores",
+    nav_transmissions: "Transmisiones",
+    nav_wheels: "Ruedas y Neumáticos",
+    "nav_electrical/ecu": "Electrónica/ECU",
+    nav_request_parts: "Solicitar una Pieza",
+    track_order: "Rastrear mi Pedido",
+    recent_parts: "Piezas Recientes",
+    add_to_cart: "Añadir al Carrito",
+    item_sold: "Vendido",
+    notes:
+      "Las piezas mostradas son ejemplos. La disponibilidad cambia con frecuencia.",
+    "looking_for_a_part?": "¿Buscas una pieza?",
+    contact_message:
+      "Cuéntanos qué necesitas. Déjanos tu email y te contactaremos en menos de una hora.",
+    payment_methods: "Métodos de Pago Aceptados",
+    news_title: "Únete al Garaje",
+    news_text: "Regístrate para ofertas exclusivas, nuevos productos y más.",
+    news_btn: "Obtener Acceso",
+    follow_us: "Síguenos",
+    shipping_partners: "Socios de Envío",
+    delivery_message:
+      "entrega mundial disponible según la ubicación de la pieza.",
+    return_policy: "Política de Devoluciones",
+    return_policy_message:
+      "Se aceptan devoluciones según los términos del proveedor. Las piezas deben estar sin usar y devolverse en su estado original.",
+    return_policy_message_2:
+      "Póngase en contacto con nosotros antes de enviar cualquier devolución para recibir las instrucciones correctas.",
+  },
+};
+
+// --- CORE INITIALIZATION ---
+
+async function initializeSiteSettings() {
+  let lang = localStorage.getItem("userLanguage");
+  let curr = localStorage.getItem("selectedCurrency");
+
+  // If first visit, detect everything via IP
+  if (!lang || !curr) {
+    try {
+      const response = await fetch("https://ipapi.co/json/");
+      const data = await response.json();
+
+      if (data.country_code === "RO") {
+        lang = "RO";
+        curr = "RON";
+      } else if (data.country_code === "PL") {
+        lang = "PL";
+        curr = "PLN";
+      } else if (data.country_code === "IT") {
+        lang = "IT";
+        curr = "EUR";
+      } else if (["ES", "MX", "AR"].includes(data.country_code)) {
+        lang = "ES";
+        curr = "EUR";
+      } else if (data.country_code === "GB") {
+        lang = "EN";
+        curr = "GBP";
+      } else {
+        lang = "EN";
+        curr = "USD";
+      }
+
+      localStorage.setItem("userLanguage", lang);
+      localStorage.setItem("selectedCurrency", curr);
+    } catch (err) {
+      lang = "EN";
+      curr = "USD";
+    }
+  }
+
+  applyUILanguage(lang);
+  applyCurrencyUpdate(curr);
+
+  // Set dropdown to match
+  const currSelect = document.getElementById("currency-select");
+  if (currSelect) currSelect.value = curr;
+}
+
+// --- REUSEABLE APPLY FUNCTIONS ---
+
+function applyUILanguage(langCode) {
+  const dict = uiTranslations[langCode] || uiTranslations["EN"];
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key]) el.innerText = dict[key];
+  });
+
+  const searchBar = document.getElementById("search");
+  if (searchBar)
+    searchBar.placeholder = dict["search_placeholder"] || "Search parts...";
+}
+
+function applyCurrencyUpdate(currencyCode) {
+  const info = currencyData[currencyCode];
+  document.querySelectorAll(".price[data-usd]").forEach((el) => {
+    const usdValue = parseFloat(el.getAttribute("data-usd"));
+    if (!isNaN(usdValue)) {
+      const converted = (usdValue * info.rate).toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+      el.innerText = info.suffix
+        ? `${converted}${info.symbol}`
+        : `${info.symbol}${converted}`;
+    }
+  });
+}
+
+// --- LISTENERS ---
+
+document.getElementById("currency-select")?.addEventListener("change", (e) => {
+  localStorage.setItem("selectedCurrency", e.target.value);
+  applyCurrencyUpdate(e.target.value);
+});
+
+// Run everything
+document.addEventListener("DOMContentLoaded", initializeSiteSettings);

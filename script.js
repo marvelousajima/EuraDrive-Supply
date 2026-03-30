@@ -419,7 +419,7 @@ const reviews = [
   {
     name: "Robert H.",
     text: "Ordered a steering rack last week, arrived in 3 days. Impressive speed.",
-    stars: "⭐⭐⭐⭐⭐",
+    stars: "⭐⭐⭐⭐",
   },
   {
     name: "Elena G.",
@@ -449,6 +449,56 @@ const reviews = [
   {
     name: "Victor M.",
     text: "Found a replacement dash for my vintage project. Absolute lifesaver.",
+    stars: "⭐⭐⭐⭐",
+  },
+  {
+    name: "Andrei P.",
+    text: "Ordered an ECU and it arrived quicker than expected. Works perfectly.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Mateo G.",
+    text: "Customer support was very helpful in finding the exact part I needed.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Luca F.",
+    text: "Got a gearbox for my car, smooth shifting now. Highly recommend.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Krzysztof W.",
+    text: "Was skeptical at first, but the engine came in great condition.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Ioana D.",
+    text: "Great experience overall. Parts were clean and well packaged.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Carlos T.",
+    text: "Finally fixed my car after months. Part worked instantly.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Giulia R.",
+    text: "Very reliable service. I will definitely order again.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Piotr K.",
+    text: "Affordable prices and fast shipping. Couldn’t ask for more.",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Elena S.",
+    text: "Got the exact part I needed for my project car. Thank you!",
+    stars: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Diego L.",
+    text: "Everything matched the description. Smooth and easy process.",
     stars: "⭐⭐⭐⭐⭐",
   },
 ];
@@ -570,27 +620,51 @@ document.addEventListener("DOMContentLoaded", initCurrency);
 /* ==========================================
    EURADRIVE MASTER LANGUAGE & CURRENCY ENGINE
    ========================================== */
-
 const uiTranslations = {
   EN: {
     login: "Login",
+    av_shipping: "🚚 3-Day Shipping Available",
+    all_parts: "All Inventory",
     nav_engines: "Engines",
     nav_transmissions: "Transmissions",
     nav_wheels: "Wheels & Tires",
     "nav_electrical/ecu": "Electrical/ECU",
     nav_request_parts: "Request a Part",
+    description: "Who are we",
+    description_text:
+      "EuraDrive Supply helps drivers, mechanics and resellers source reliable automotive parts across Europe and the US",
+    description_text_2:
+      "We verify suppliers, confirm compatibility and arrange shipping",
+    why_trust: "Why Customers Trust Us",
+    wt1: "✔ Verified suppliers",
+    wt2: "✔ Worldwide shipping",
+    wt3: "✔ Compatibility checked before shipping",
+    wt4: "✔ Warranty on selected parts",
+    wt5: "✔ Fast response time",
+    label1: "Email Address",
+    label2: "Which part are you looking for?",
     track_order: "Track My Order",
+    track_title: "Track Your Gear",
+    track_text: "Enter your Order ID (e.g. #EDS-101) to see live status.",
+    track_btn: "Check Status",
     recent_parts: "Recent Parts",
     add_to_cart: "Add to Cart",
+    reviews: "reviews",
     item_sold: "Item Sold",
+    hero_subtitle: "Your trusted source for quality auto parts",
+    your_garage: "Your Garage(Cart)",
+    cart_empty: "Your garage is empty",
+    checkout_btn: "Proceed to Checkout",
+    checkout_wa: "Checkout via Whatsapp",
+    total: "Total",
+    news_title: "Join the Garage",
+    news_btn: "Get Early Access",
     notes: "Parts shown are examples. Availability changes frequently.",
     "looking_for_a_part?": "Looking for a Part?",
     contact_message:
       "Tell us what you need. Leave your email and we’ll get back to you within the hour.",
     payment_methods: "Accepted Payment Methods",
-    news_title: "Join the Garage",
     news_text: "Sign up for exclusive offers, new products, and more.",
-    news_btn: "Get Early Access",
     follow_us: "Follow Us",
     shipping_partners: "Shipping Partners",
     delivery_message:
@@ -603,55 +677,103 @@ const uiTranslations = {
   },
   RO: {
     login: "Autentificare",
+    av_shipping: "🚚 Livrare în 3 zile disponibilă",
+    all_parts: "Tot Inventarul",
     nav_engines: "Motoare",
     nav_transmissions: "Transmisii",
     nav_wheels: "Jante și Anvelope",
     "nav_electrical/ecu": "Electrice/ECU",
     nav_request_parts: "Cerere Piesă",
-    track_order: "Urmărire Comandă",
+    description: "Cine suntem",
+    description_text:
+      "EuraDrive Supply ajută șoferii, mecanicii și distribuitorii să găsească piese auto fiabile în Europa și SUA",
+    description_text_2:
+      "Verificăm furnizorii, confirmăm compatibilitatea și organizăm transportul",
+    why_trust: "De ce să ai încredere în noi",
+    wt1: "✔ Furnizori verificați",
+    wt2: "✔ Livrare în întreaga lume",
+    wt3: "✔ Compatibilitate verificată înainte de expediere",
+    wt4: "✔ Garanție la piese selectate",
+    wt5: "✔ Timp de răspuns rapid",
+    label1: "Adresă de Email",
+    label2: "Ce piesă cauți?",
+    track_order: "Urmărește Comanda",
+    track_title: "Urmărește-ți pachetul",
+    track_text: "Introdu ID-ul comenzii (ex. #EDS-101) pentru status live.",
+    track_btn: "Verifică Status",
     recent_parts: "Piese Recente",
     add_to_cart: "Adaugă în Coș",
+    reviews: "recenzii",
     item_sold: "Vândut",
+    hero_subtitle: "Sursa ta de încredere pentru piese auto de calitate",
+    your_garage: "Garajul Tău (Coș)",
+    cart_empty: "Garajul tău este gol",
+    checkout_btn: "Finalizează Comanda",
+    checkout_wa: "Comandă prin Whatsapp",
+    total: "Total",
+    news_title: "Alătură-te Garajului",
+    news_btn: "Obține Acces",
     notes:
       "Piesele afișate sunt exemple. Disponibilitatea se schimbă frecvent.",
     "looking_for_a_part?": "Cauți o piesă?",
     contact_message:
-      "Spune-ne de ce ai nevoie. Lasă-ți adresa de e-mail și îți vom răspunde în decurs de o oră.",
+      "Spune-ne ce ai nevoie. Lasă-ți email-ul și revenim în maxim o oră.",
     payment_methods: "Metode de Plată Acceptate",
-    news_title: "Alătură-te Garajului",
-    news_text:
-      "Abonează-te pentru oferte exclusive, produse noi și multe altele.",
-    news_btn: "Obține Acces",
+    news_text: "Abonează-te pentru oferte exclusive și noutăți.",
     follow_us: "Urmărește-ne",
     shipping_partners: "Parteneri de Livrare",
     delivery_message:
-      "livrare în întreaga lume disponibilă în funcție de locația piesei.",
+      "livrare mondială disponibilă în funcție de locația piesei.",
     return_policy: "Politica de Retur",
     return_policy_message:
-      "Retururile sunt acceptate conform termenilor furnizorului. Piesele trebuie să fie nefolosite și returnate în starea lor originală.",
+      "Retururile sunt acceptate conform termenilor furnizorului. Piesele trebuie să fie nefolosite și returnate în starea originală.",
     return_policy_message_2:
-      "Vă rugăm să ne contactați înainte de a trimite orice retur pentru a primi instrucțiunile corecte.",
+      "Te rugăm să ne contactezi înainte de retur pentru instrucțiunile corecte.",
   },
   PL: {
     login: "Zaloguj się",
+    av_shipping: "🚚 Dostępna wysyłka w 3 dni",
+    all_parts: "Cały asortyment",
     nav_engines: "Silniki",
     nav_transmissions: "Skrzynie biegów",
     nav_wheels: "Koła i Opony",
     "nav_electrical/ecu": "Elektryka/ECU",
-    nav_request_parts: "Zatwierdź część",
+    nav_request_parts: "Zamów część",
+    description: "O nas",
+    description_text:
+      "EuraDrive Supply pomaga kierowcom, mechanikom i sprzedawcom pozyskiwać niezawodne części samochodowe w Europie i USA",
+    description_text_2:
+      "Weryfikujemy dostawców, potwierdzamy kompatybilność i organizujemy wysyłkę",
+    why_trust: "Dlaczego warto nam zaufać",
+    wt1: "✔ Zweryfikowani dostawcy",
+    wt2: "✔ Wysyłka na cały świat",
+    wt3: "✔ Kompatybilność sprawdzona przed wysyłką",
+    wt4: "✔ Gwarancja na wybrane części",
+    wt5: "✔ Szybki czas reakcji",
+    label1: "Adres e-mail",
+    label2: "Jakiej części szukasz?",
     track_order: "Śledź zamówienie",
+    track_title: "Śledź swój sprzęt",
+    track_text: "Wpisz numer zamówienia (np. #EDS-101), aby zobaczyć status.",
+    track_btn: "Sprawdź status",
     recent_parts: "Ostatnie części",
     add_to_cart: "Dodaj do koszyka",
+    reviews: "opinie",
     item_sold: "Sprzedane",
+    hero_subtitle: "Twoje zaufane źródło wysokiej jakości części",
+    your_garage: "Twój Garaż (Koszyk)",
+    cart_empty: "Twój garaż jest pusty",
+    checkout_btn: "Przejdź do płatności",
+    checkout_wa: "Zamów przez Whatsapp",
+    total: "Suma",
+    news_title: "Dołącz do Garażu",
+    news_btn: "Uzyskaj dostęp",
     notes: "Pokazane części to przykłady. Dostępność często się zmienia.",
     "looking_for_a_part?": "Szukasz części?",
     contact_message:
-      "Powiedz nam, czego potrzebujesz. Zostaw swój e-mail, a skontaktujemy się z Tobą w ciągu godziny.",
-    payment_methods: "Akceptowane Metody Płatności",
-    news_title: "Dołącz do Garażu",
-    news_text:
-      "Zapisz się, aby otrzymywać ekskluzywne oferty, nowości i więcej.",
-    news_btn: "Uzyskaj dostęp",
+      "Powiedz nam, czego potrzebujesz. Zostaw e-mail, odpowiemy w ciągu godziny.",
+    payment_methods: "Akceptowane metody płatności",
+    news_text: "Zapisz się, aby otrzymywać ekskluzywne oferty i nowości.",
     follow_us: "Obserwuj nas",
     shipping_partners: "Partnerzy wysyłkowi",
     delivery_message:
@@ -660,68 +782,119 @@ const uiTranslations = {
     return_policy_message:
       "Zwroty są akceptowane zgodnie z warunkami dostawcy. Części muszą być nieużywane i zwrócone w oryginalnym stanie.",
     return_policy_message_2:
-      "Prosimy o kontakt przed wysłaniem zwrotu w celu otrzymania instrukcji.",
+      "Skontaktuj się z nami przed zwrotem, aby otrzymać instrukcje.",
   },
   IT: {
     login: "Accedi",
+    av_shipping: "🚚 Spedizione in 3 giorni disponibile",
+    all_parts: "Tutto l'inventario",
     nav_engines: "Motori",
     nav_transmissions: "Trasmissioni",
     nav_wheels: "Ruote e Pneumatici",
     "nav_electrical/ecu": "Elettronica/ECU",
-    nav_request_parts: "Richiedi un Ricambio",
-    track_order: "Traccia il mio Ordine",
-    recent_parts: "Parti Recenti",
-    add_to_cart: "Aggiungi al Carrello",
-    item_sold: "Venduto",
+    nav_request_parts: "Richiedi un ricambio",
+    description: "Chi siamo",
+    description_text:
+      "EuraDrive Supply aiuta automobilisti, meccanici e rivenditori a trovare ricambi affidabili in Europa e negli USA",
+    description_text_2:
+      "Verifichiamo i fornitori, confermiamo la compatibilità e organizziamo la spedizione",
+    why_trust: "Perché i clienti si fidano di noi",
+    wt1: "✔ Fornitori verificati",
+    wt2: "✔ Spedizione in tutto il mondo",
+    wt3: "✔ Compatibilità verificata prima della spedizione",
+    wt4: "✔ Garanzia su parti selezionate",
+    wt5: "✔ Tempi di risposta rapidi",
+    label1: "Indirizzo Email",
+    label2: "Quale ricambio stai cercando?",
+    track_order: "Traccia il mio ordine",
+    track_title: "Traccia il tuo pacco",
+    track_text:
+      "Inserisci l'ID ordine (es. #EDS-101) per lo stato in tempo reale.",
+    track_btn: "Verifica Stato",
+    recent_parts: "Ricambi Recenti",
+    add_to_cart: "Aggiungi al carrello",
+    reviews: "recensioni",
+    item_sold: "Esaurito",
+    hero_subtitle: "La tua fonte affidabile per ricambi auto di qualità",
+    your_garage: "Il Tuo Garage (Carrello)",
+    cart_empty: "Il tuo garage è vuoto",
+    checkout_btn: "Procedi al Pagamento",
+    checkout_wa: "Ordina via Whatsapp",
+    total: "Totale",
+    news_title: "Unisciti al Garage",
+    news_btn: "Ottieni l'accesso",
     notes:
       "Le parti mostrate sono esempi. La disponibilità cambia frequentemente.",
     "looking_for_a_part?": "Cerchi un ricambio?",
     contact_message:
       "Dicci di cosa hai bisogno. Lascia la tua email e ti risponderemo entro un'ora.",
     payment_methods: "Metodi di Pagamento Accettati",
-    news_title: "Unisciti al Garage",
-    news_text:
-      "Iscriviti per offerte esclusive, nuovi prodotti e altro ancora.",
-    news_btn: "Ottieni l'accesso",
+    news_text: "Iscriviti per offerte esclusive e novità.",
     follow_us: "Seguici",
     shipping_partners: "Partner di Spedizione",
     delivery_message:
-      "consegna in tutto il mondo disponibile a seconda della posizione del pezzo.",
+      "spedizione mondiale disponibile a seconda della posizione del pezzo.",
     return_policy: "Politica di Reso",
     return_policy_message:
-      "I resi sono accettati secondo i termini del fornitore. Le parti devono essere inutilizzate e restituite nelle loro condizioni originali.",
+      "I resi sono accettati secondo i termini del fornitore. Le parti devono essere inutilizzate e restituite nelle condizioni originali.",
     return_policy_message_2:
-      "Contattaci prima di spedire qualsiasi reso per ricevere le istruzioni corrette.",
+      "Contattaci prima di spedire un reso per le istruzioni corrette.",
   },
   ES: {
-    login: "Iniciar Sesión",
+    login: "Acceder",
+    av_shipping: "🚚 Envío en 3 días disponible",
+    all_parts: "Todo el inventario",
     nav_engines: "Motores",
     nav_transmissions: "Transmisiones",
     nav_wheels: "Ruedas y Neumáticos",
     "nav_electrical/ecu": "Electrónica/ECU",
-    nav_request_parts: "Solicitar una Pieza",
-    track_order: "Rastrear mi Pedido",
-    recent_parts: "Piezas Recientes",
-    add_to_cart: "Añadir al Carrito",
+    nav_request_parts: "Solicitar una pieza",
+    description: "Quiénes somos",
+    description_text:
+      "EuraDrive Supply ayuda a conductores, mecánicos y revendedores a encontrar piezas de repuesto fiables en Europa y EE. UU.",
+    description_text_2:
+      "Verificamos proveedores, confirmamos compatibilidad y gestionamos el envío",
+    why_trust: "Por qué confiar en nosotros",
+    wt1: "✔ Proveedores verificados",
+    wt2: "✔ Envío a todo el mundo",
+    wt3: "✔ Compatibilidad verificada antes del envío",
+    wt4: "✔ Garantía en piezas seleccionadas",
+    wt5: "✔ Respuesta rápida",
+    label1: "Correo electrónico",
+    label2: "¿Qué pieza estás buscando?",
+    track_order: "Rastrear mi pedido",
+    track_title: "Rastrea tu pedido",
+    track_text:
+      "Introduce tu ID de pedido (ej. #EDS-101) para ver el estado en vivo.",
+    track_btn: "Verificar estado",
+    recent_parts: "Piezas recientes",
+    add_to_cart: "Añadir al carrito",
+    reviews: "reseñas",
     item_sold: "Vendido",
+    hero_subtitle: "Tu fuente de confianza para piezas de calidad",
+    your_garage: "Tu Garaje (Carrito)",
+    cart_empty: "Tu garaje está vacío",
+    checkout_btn: "Proceder al pago",
+    checkout_wa: "Pedir por Whatsapp",
+    total: "Total",
+    news_title: "Únete al Garaje",
+    news_btn: "Obtener acceso",
     notes:
       "Las piezas mostradas son ejemplos. La disponibilidad cambia con frecuencia.",
     "looking_for_a_part?": "¿Buscas una pieza?",
     contact_message:
-      "Cuéntanos qué necesitas. Déjanos tu email y te contactaremos en menos de una hora.",
-    payment_methods: "Métodos de Pago Aceptados",
-    news_title: "Únete al Garaje",
-    news_text: "Regístrate para ofertas exclusivas, nuevos productos y más.",
-    news_btn: "Obtener Acceso",
+      "Dinos qué necesitas. Déjanos tu email y te responderemos en menos de una hora.",
+    payment_methods: "Métodos de pago aceptados",
+    news_text: "Regístrate para ofertas exclusivas y novedades.",
     follow_us: "Síguenos",
-    shipping_partners: "Socios de Envío",
+    shipping_partners: "Socios de envío",
     delivery_message:
-      "entrega mundial disponible según la ubicación de la pieza.",
-    return_policy: "Política de Devoluciones",
+      "envío mundial disponible según la ubicación de la pieza.",
+    return_policy: "Política de devoluciones",
     return_policy_message:
-      "Se aceptan devoluciones según los términos del proveedor. Las piezas deben estar sin usar y devolverse en su estado original.",
+      "Se aceptan devoluciones según los términos del proveedor. Las piezas deben estar sin usar y en su estado original.",
     return_policy_message_2:
-      "Póngase en contacto con nosotros antes de enviar cualquier devolución para recibir las instrucciones correctas.",
+      "Contáctanos antes de enviar una devolución para recibir las instrucciones.",
   },
 };
 
@@ -776,15 +949,23 @@ async function initializeSiteSettings() {
 // --- REUSEABLE APPLY FUNCTIONS ---
 
 function applyUILanguage(langCode) {
-  const dict = uiTranslations[langCode] || uiTranslations["EN"];
+  const dict = uiTranslations[langCode] || uiTranslations.EN;
+
+  // 1. Update all standard text elements
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (dict[key]) el.innerText = dict[key];
+    if (dict[key]) {
+      // Check if it's an input (like search) or standard text
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        el.placeholder = dict[key];
+      } else {
+        el.innerText = dict[key];
+      }
+    }
   });
 
-  const searchBar = document.getElementById("search");
-  if (searchBar)
-    searchBar.placeholder = dict["search_placeholder"] || "Search parts...";
+  // 2. Special Case: Update Document Title (Browser Tab)
+  document.title = `EuraDrive Supply | ${dict.hero_title || "Parts"}`;
 }
 
 function applyCurrencyUpdate(currencyCode) {

@@ -1287,3 +1287,129 @@ body {
   border-color: var(--primary-red);
   box-shadow: 0 0 5px rgba(230, 57, 70, 0.3);
 }
+/* target all your modals (tracking, newsletter, etc) */
+.modal-content,
+.drawer-content {
+  width: 90%; /* Don't hit the edges */
+  max-height: 85vh; /* Leave 15% of the screen visible at the top */
+  margin: 10% auto; /* Push it down from the status bar */
+  border-radius: 15px; /* Makes it look like a floating card */
+  overflow-y: auto; /* If content is long, scroll inside the modal */
+  position: relative;
+  padding-top: 50px; /* Space for the X button */
+}
+
+/* Make the X button HUGE and easy to hit */
+.close-modal,
+.close-review {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 32px; /* Bigger for thumbs */
+  padding: 10px; /* Larger hit area */
+  line-height: 1;
+  z-index: 1001;
+  cursor: pointer;
+}
+/* Mobile & Tablet Slider */
+@media (max-width: 992px) {
+  /* The 3-Row Horizontal Container */
+  .products-container {
+    display: grid !important;
+    /* Create 3 equal rows */
+    grid-template-rows: repeat(3, auto);
+    /* Force items to fill columns first, then move right */
+    grid-auto-flow: column;
+    grid-auto-columns: 280px; /* Width of each part */
+
+    gap: 15px;
+    padding: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide for Firefox */
+  }
+
+  .products-container::-webkit-scrollbar {
+    display: none; /* Hide for Chrome/Safari */
+  }
+
+  .product {
+    width: 280px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 15px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ensure images don't blow up in the grid */
+  .img-container {
+    height: 160px; /* Slightly shorter to fit 3 rows comfortably */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .product-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .products-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar on Chrome/Safari */
+  }
+
+  .product {
+    flex: 0 0 75%; /* Shows one part + 25% of the next to hint there's more */
+    scroll-snap-align: center; /* Centers the part when the user lets go */
+    margin-bottom: 0 !important; /* Removes vertical stacking gaps */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a little 'lift' */
+  }
+}
+
+/* Desktop: Keep the Grid */
+@media (min-width: 993px) {
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+/* 1. Limit the height of the gallery area */
+.gallery-container {
+  width: 100%;
+  height: 200px; /* Adjust this: 180px-220px is usually perfect for car parts */
+  overflow: hidden;
+  position: relative;
+  background: #f8f8f8; /* Light grey background for empty space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 2. Make the image fit the box perfectly */
+.product-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* This prevents stretching and keeps the part's shape */
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* 3. Adjust the overall part card on mobile */
+@media (max-width: 768px) {
+  .product {
+    flex: 0 0 280px; /* Set a fixed width so they don't look 'huge' on wide phones */
+    max-width: 280px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fff;
+  }
+}

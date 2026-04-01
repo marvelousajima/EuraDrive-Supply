@@ -16,8 +16,8 @@
     </header>
 
     <section class="form-section">
-      <h2>Request a Part</h2>
-      <p>Fill this form and we’ll source it for you.</p>
+      <h2 data-i18n="request_part">Request a Part</h2>
+      <p data-i18n="request_p">Fill this form and we’ll source it for you.</p>
 
       <div class="form-container">
         <form
@@ -25,10 +25,10 @@
           action="https://formspree.io/f/xdaangll"
           method="POST"
         >
-          <label>Email</label>
+          <label data-i18n="email_label">Email</label>
           <input type="email" name="email" required />
 
-          <label>Car Details</label>
+          <label data-i18n="car_details">Car Details</label>
           <input
             type="text"
             name="car"
@@ -36,10 +36,10 @@
             required
           />
 
-          <label>Part Needed</label>
+          <label data-i18n="part_needed">Part Needed</label>
           <textarea name="message" rows="5" required></textarea>
 
-          <button type="submit">Send Request</button>
+          <button type="submit" data-i18n="send_request">Send Request</button>
         </form>
       </div>
     </section>

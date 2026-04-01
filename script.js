@@ -1032,3 +1032,34 @@ document.getElementById("currency-select")?.addEventListener("change", (e) => {
 
 // Run everything
 document.addEventListener("DOMContentLoaded", initializeSiteSettings);
+function updateLanguage(lang) {
+  // 1. Find every single element that has a data-i18n attribute
+  const elements = document.querySelectorAll("[data-i18n]");
+
+  elements.forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+
+    // 2. Check if the key exists for the selected language
+    if (uiTranslations[lang] && uiTranslations[lang][key]) {
+      // 3. Special Case: If it's an Input or Textarea, update the Placeholder
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        el.placeholder = uiTranslations[lang][key];
+      } else {
+        // 4. Otherwise, update the text inside (like labels/buttons)
+        el.innerText = uiTranslations[lang][key];
+      }
+    }
+  });
+}
+function updateLanguage(lang) {
+  const elements = document.querySelectorAll("[data-i18n]");
+
+  elements.forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (uiTranslations[lang] && uiTranslations[lang][key]) {
+      // This only changes the text of the specific element (the <span>)
+      // It will not touch the ⭐ stars in the parent <p> tag.
+      el.textContent = uiTranslations[lang][key];
+    }
+  });
+}

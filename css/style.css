@@ -1413,3 +1413,34 @@ body {
     background: #fff;
   }
 }
+
+@media (max-width: 768px) {
+  /* Target only the Newsletter Modal */
+  #newsletter-modal .modal-content {
+    width: 85% !important; /* Keeps it from hitting the screen edges horizontally */
+    height: 50vh !important; /* Sets height to exactly 50% of the screen */
+
+    /* Centering Logic */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Internal Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the form inside the 50% box */
+    align-items: center;
+
+    padding: 20px;
+    margin: 0 !important; /* Remove margins to keep centering perfect */
+    border-radius: 15px;
+    overflow-y: auto; /* Just in case the content is taller than 50% */
+  }
+
+  /* Adjust the text inside so it fits the smaller box */
+  #newsletter-modal h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+}
